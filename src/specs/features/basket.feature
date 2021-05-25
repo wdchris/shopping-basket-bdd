@@ -9,7 +9,7 @@ Feature: Shopping Basket
       """
       01/06/2021
       """
-    And they should see
+    And they should get a table
       | Units | Title        | Unit Price | Line Total |
       | 2     | The Hobbit   | 5.00       | 10.00      |
       | 5     | Breaking Bad | 7.00       | 35.00      |
