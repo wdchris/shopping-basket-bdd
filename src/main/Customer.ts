@@ -3,23 +3,12 @@ import { Item } from "./Item";
 export class Customer {
     date: any;
     items: any[]  = [];
+    total: number = 0;
 
-    // [{
-    //     "Units": "2",
-    //     "Title": 'The Hobbit',
-    //     'Unit Price': "5.00",
-    //     'Line Total': "10.00"
-    //   },
-    //   {
-    //     "Units": "5",
-    //     "Title": 'Breaking Bad',
-    //     'Unit Price': "7.00",
-    //     'Line Total': "35.00"
-    //   }]
     checkBasket(): any {
         return {
             "Date": "01/06/2021",
-            "Total": "£45.00",
+            "Total": "£" + this.total.toFixed(2),
             "Items": this.items
         }
     }
@@ -28,11 +17,13 @@ export class Customer {
     }
 
     addToBasket(amount: any, item: Item) {
+        let lineTotal = item.price * amount;
+        this.total += lineTotal;
         this.items.push({
             "Units": amount,
             'Title' : item.title,
             'Unit Price' : item.price.toFixed(2),
-            'Line Total' : (item.price * amount).toFixed(2)
+            'Line Total' : lineTotal.toFixed(2)
         })
     }
 
