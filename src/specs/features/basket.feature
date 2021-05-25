@@ -3,7 +3,7 @@ Feature: Shopping Basket
   Scenario: Customer adds to basket
     Given Date is "01/06/2021"
     And Customer adds 2 copies of "The Hobbit"
-    And Customer adds 5 copies of "Beaking Bad"
+    And Customer adds 5 copies of "Breaking Bad"
     When they check their shopping basket
     Then they should see
       """
